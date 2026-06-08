@@ -1,0 +1,17 @@
+name: Demo workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      mensaje:
+        description: "Mensaje de texto a imprimir"
+        required: true
+        default: "Hola desde GitHub Actions"
+        type: string
+
+jobs:
+  imprimir-mensaje:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Imprimir el mensaje recibido
+        run: echo "El mensaje recibido es ${{ inputs.mensaje }}"
